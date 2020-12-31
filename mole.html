@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+    <html>
+        <head>
+            <title>Wack A Mole</title>
+            <style>
+                .container{
+                    height: 230px;
+    width: 414px;
+    padding: 71px;
+    background-color: #cdcd;
+    margin: 15px auto;
+    display: grid;
+    grid-template-columns: 180px 162px 84px;
+                }
+                .area{
+                    background-color: brown;
+                     height: 5px;
+                     width: 94px;
+                }
+                #mole{
+                    height: 50px;
+                    width: 50px;
+                    display: none;
+                    background-color: red;
+                }
+                #start{
+                    border: 1px solid grey;
+                    height: 50px;
+                    width: 60px;
+                    background-color: lime;
+                }
+                #pause{
+                    background-color: red;
+                    height: 40px;
+                    width: 60px;
+                }
+                #rdiv{
+                    height: 26px;
+    width: 27px;
+    background-color: brown;
+    display: none;
+    margin-left: 37px;
+    align-items: center;
+    text-align: center;
+                }
+
+
+            </style>
+            
+        </head>
+        <body>
+            <span>Wack A MOLE!!</span>
+            <button id="start">Start Game</button>
+            <button id="pause">Stop</button>
+            <h2>Score Is</h2><h1 id="res">0</h1>
+            
+            <span class="container" id="main">
+                
+                
+                <div id="zero" class="area">
+                    <div id="rdiv"></div>
+                </div>
+                
+                <div id="one" class="area">
+                    <div id="rdiv"></div>
+                </div>
+
+                <div id="two" class="area">
+                    <div id="rdiv"></div>
+                </div>
+               
+                 <div id="three" class="area">
+                    <div id="rdiv"></div>
+                </div>
+                
+                <div id="four" class="area">
+                    <div id="rdiv"></div>
+                 </div>
+                
+                 <div id="five" class="area">
+                    <div id="rdiv"></div>
+                </div>
+                
+               
+               
+
+
+            </span>
+            
+            
+        
+
+
+
+
+            <script>
+                let del="";
+                let arr=["zero","one","two","three","four","five"];
+                 let inter;
+                
+                start.onclick=function(){
+                     inter=setInterval(()=>inputR(),750);
+                     setInterval(()=>delE(del),900)
+                        
+                }
+                pause.onclick=function(){
+                    clearInterval(inter)
+                }
+
+              
+                let pr="";
+                
+                function inputR(){
+                  let r=random();
+                    if(pr===r){
+
+                        r=random();
+                    }
+                    pr=r
+                    
+                    let rd=arr[r];
+                    del=rd
+                  
+                   document.getElementById(rd).firstElementChild.style.display="block";
+                   
+                   
+                   
+                   
+                }
+
+                function delE(ele){
+
+                   document.getElementById(ele).firstElementChild.style.display="none";
+                }
+                
+
+                function random(){
+                    let n=Math.floor(Math.random()*6);
+                    return n;
+                }
+                
+
+                        
+                
+                
+                document.addEventListener('DOMContentLoaded',function(){
+                
+               
+                    let s=0;
+                    let rand_d="";
+                    document.querySelectorAll('div').forEach(div=>{
+                        div.onclick=function(){
+                           let c=div.firstElementChild;
+                           if(c!=null){
+                               s++;
+                               res.innerHTML=s;
+                           }
+                          
+                            
+                        }
+                        
+                        
+                        
+                      
+                       
+                       
+                        
+                    })
+                   
+                    
+                })
+            </script> 
+        </body>
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </html>
